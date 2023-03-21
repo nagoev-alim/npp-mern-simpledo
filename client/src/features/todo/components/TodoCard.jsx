@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import toast from 'react-hot-toast';
 import { useState } from 'react';
 import { BiSave, BsCheckLg, FiTrash2, TbEdit } from 'react-icons/all.js';
-import TimeAgo from 'react-timeago'
+import moment from 'moment/moment.js';
 /* =============================
 📦 Custom Imports
 ============================= */
@@ -72,7 +72,7 @@ export default function TodoCard({ item }) {
     {/* Buttons */}
     <div className='flex items-center gap-2'>
       <div className='mr-auto'>
-        <TimeAgo date={item.createdAt}/>
+        <p>{moment(item.createdAt).fromNow()}</p>
       </div>
       <button className='btn w-[40px] h-[40px] p-1' onClick={() => edit ? onSaveEdit() : onEdit()}>
         {edit ? <BiSave size={18} /> : <TbEdit size={18} />}

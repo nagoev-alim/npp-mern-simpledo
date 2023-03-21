@@ -56,7 +56,6 @@ axiosInstance.interceptors.response.use(
 export const API_USER = {
   REGISTER: createAsyncThunk('user/register', async (payload, { rejectWithValue }) => {
     try {
-      console.log(axiosInstance);
       const { data } = await axiosInstance.post('/users/register', payload);
       return data;
     } catch (error) {
